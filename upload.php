@@ -2,13 +2,16 @@
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 echo "target file: $target_file"  ;
+echo "<br/>" ;
 
 $upload_max = parse_size(ini_get('upload_max_filesize'));
+echo "max size: $upload_max" ;
+echo "<br/>" ;
 
-echo "mas size: $upload_max" ;
 
-$uploadOk = 1;
+
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$uploadOk = 1;
 
 // // Check if image file is a actual image or fake image
 // if(isset($_POST["submit"])) {
@@ -25,11 +28,15 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if file already exists
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
+  echo "<br/>" ;
   $uploadOk = 0;
 }
 
 // Check file size
-echo $_FILES["fileToUpload"]["size"] ;
+
+echo "file size : ";
+echo $_FILES["fileToUpload"]["size"];
+echo "<br/>" ;
 
 // if ($_FILES["fileToUpload"]["size"] > 50000000) {
 //   echo "Sorry, your file is too large.";
@@ -64,6 +71,6 @@ function parse_size($size) {
   else {
     return round($size);
   }
-}da
+}
 ?>
 
